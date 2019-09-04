@@ -135,7 +135,7 @@ router.post(
     //       }
     //       res.json(paginationFilter(result,param))
     //     })
-    //     .catch(err=>res.status(404).json(err)) 
+    //     .catch(err=>res.status(404).json(err))
     // });
 
     // 新增&注册融合
@@ -244,7 +244,7 @@ router.get( // 全部
         else if(param.filterFields) {
           const filterFields = JSON.parse(param.filterFields)
           let items = result
-          if(filterFields.name){ 
+          if(filterFields.name){
             const name = filterFields.name
             items = items.filter((item)=>item.name.indexOf(name) >= 0)
           }
@@ -264,7 +264,7 @@ router.get( // 全部
           res.json(paginationFilter(items,param))
         }
         // 全部返回
-        else { 
+        else {
           res.json(paginationFilter(result,param))
         }
       })
@@ -323,7 +323,7 @@ function paginationFilter(result, param){ // 分页处理参数
 function arrObjSearch (arrObj,searchField,searchValue) {
   const result = [] // 集合结果
   const set = new Set() // set去重
-  
+
   for(const item of arrObj){
       const itemValue = item[searchField] //当前条目值
       if(
@@ -333,9 +333,9 @@ function arrObjSearch (arrObj,searchField,searchValue) {
           set.add(itemValue)
           result.push({
               value: itemValue,
-          })   
+          })
       }
   }
   console.log('result',result)
-  return result 
+  return result
 }
